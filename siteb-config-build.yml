@@ -1,0 +1,8 @@
+---
+- name: deploy site web infra
+  hosts: localhost
+  become: yes
+
+  roles:
+    - apache-simple
+

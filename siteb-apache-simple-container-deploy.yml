@@ -1,0 +1,17 @@
+---
+- name: deploy siteb
+  hosts: siteb
+  become: yes
+
+  tasks:
+  - name: install docker prereq
+    pip:
+      name: docker
+
+  - name: launch the apache-simple container on the siteb nodes
+    docker_container:
+      name: apache-simple
+      image: quay.io/sdunne/ansible-for-devops-siteb
+      ports:
+        - "8080:8080"
+
